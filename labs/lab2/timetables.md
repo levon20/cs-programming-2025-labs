@@ -6,4 +6,4 @@
 #
 [Third week](timetable_3w.md)
 #
-[](dogs.jpg)
+![alt text](dogs.jpg)
