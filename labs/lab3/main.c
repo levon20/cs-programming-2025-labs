@@ -11,17 +11,9 @@ void lab8(void);
 void lab9(void);
 void lab10(void);
 
-long getFact(int num)
-{
-	if (num == 1)
-		return 1;
-	else 
-		return num * getFact(num-1);
-}
-
 int main()
 {
-	lab8();
+	lab4();
 
 }
 
@@ -33,9 +25,10 @@ void lab1()
 	printf("Ваше имя: ");
 	scanf("%10s", name);
 	printf("Ваш возраст: ");
-	scanf("%d", &age);
+	scanf("%d", &age);	
 
-	printf("Вас зовут %s. Ваш возраст %d \n", name, age);	
+	for(int i = 0; i <= 10; i++)
+		printf("Вас зовут %s. Ваш возраст %d \n", name, age);	
 }
 
 void lab2()
@@ -51,7 +44,10 @@ void lab2()
 
 void lab3()
 {
-	for (int i = 0; i <= 100; i+=2 )
+	int iMin = 0;
+	int iMax = 100;
+
+	for(int i = iMin+2; i <= iMax; i+=3 )
 	{
 		printf("%d \n", i);
 	}
@@ -60,9 +56,12 @@ void lab3()
 void lab4()
 {
 	int num;
+	long res = 1;
 	printf("Введите число: ");
 	scanf("%d", &num);
-	printf("%d! = %ld \n", num, getFact(num));
+	for(int i = 1; i <= num; i++)
+		res *= i;
+	printf("%d! = %ld \n", num, res);
 }
 
 void lab5()
