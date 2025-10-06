@@ -87,3 +87,4 @@ def tas12():
         print(str[3:8])
         print(str[::-1])
     else: print("error")
+tas6()
