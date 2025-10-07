@@ -8,13 +8,10 @@ void lab5(void);
 void lab6(void);
 void lab7(void);
 void lab8(void);
-void lab9(void);
-void lab10(void);
 
 int main()
 {
-	lab4();
-
+	
 }
 
 void lab1()
