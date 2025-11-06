@@ -144,19 +144,18 @@ void tasc6()
 	printf("Введите год: ");
 	scanf("%d", &year);
 
-	if (year > 0)
+	if (year >= 0)
 	{
 		if ((year % 4 == 0 && year % 100 != 0) || (year % 400 == 0)) printf("%d - високосный.\n", year);
 		else printf("%d - не високосный\n", year);
 	}
 	else printf("Ошибка! Некорректный год.");
-	
 }
 
 void tasc7()
 {
 	int nums[3];
-	int maxNum;
+	int maxNum = -2147483648;
 
 	printf("Введите 3 числа через пробел: ");
 	scanf("%d %d %d", &nums[0], &nums[1], &nums[2]);
@@ -173,26 +172,24 @@ void tasc7()
 
 void tasc8()
 {
-	int sum;
+	float sum;
 	float discount;
 
 	printf("Введите сумму покупки: ");
-	scanf("%d", &sum);
+	scanf("%f", &sum);
 
-	if (sum > 0)
+	if (sum >= 0)
 	{
 		if (sum < 1000) discount = 0;
 		else if (sum >= 1000 && sum < 5000) discount = 0.05f;
 		else if (sum >= 5000 && sum < 10000) discount = 0.1f;
-		else if (sum >= 10000) discount = 0.15f;
+		else discount = 0.15f;
 
 
 		printf("Скидка %.0f%% \n", discount*100);
 		printf("Итоговая сумма к оплате: %.1f \n", sum - sum*discount);
 	}
 	else printf("Ошибка. Некорректная сумма.\n");
-
-
 }
 
 void tasc9()
@@ -241,7 +238,6 @@ void tasc10()
 		else printf("составное.\n");	
 	}
 	else printf("Ошибка! Некорректное число. ");
-	
 }
 
 
