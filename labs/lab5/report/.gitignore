@@ -11,3 +11,4 @@
 *.cb2
 *.bcf
 .*.lb
+*.run.xml
