@@ -4,16 +4,13 @@
 float task1(float, char, char);
 float task2(float, int);
 void task3(int, int);
+void task4();
+void task5(char*, int);
 
 int main(void)
 {
-	int low = 1;
-	int high = 1;
-	while (1)
-	{
-		scanf("%d %d", &low, &high);
-		task3(low, high);
-	}
+	char str[3] = "fdf";
+	task5(str, 3);
 }
 
 float task1(float time, char unit1, char unit2)
@@ -41,6 +38,8 @@ float task1(float time, char unit1, char unit2)
 	}
 	return 0;
 }
+
+////task2
 
 float Pow(float num, int power)
 {
@@ -90,6 +89,8 @@ float task2(float startSum, int years)
 	}
 	return calculateFinalSum(sum ,thirdRate + bonusRate, years) - startSum;
 }
+
+//////task3
 
 int isSimple(int num)
 {
@@ -144,10 +145,111 @@ void task3(int low, int high)
 		printf("\n");
 }
 
+////task4
 
+void printMatrix(int* matrix, int numOfStr, int numOfCol)
+{
+	for (int i = 0; i < numOfStr; i++)
+	{
+		for (int j = 0; j < numOfCol; j++)
+		{
+			printf("%d ",matrix[i, j]);
+		}
+		printf("\n");
+	}
+}
 
+void inputMatrixValues(int* matrix,int numOfStr, int numOfCol)
+{
+	for (int i = 0; i < numOfStr; i++)
+	{
+		printf("Введите элементы строки %d через пробел. Затем нажмите ENTER. \n", i+1);
 
+		for(int j = 0; j < numOfCol; j++)
+		{
+			scanf("%d", &matrix[i, j]);
+		}
+	}
+}
 
+void task4()
+{
+	int numOfStr = 0;
+	int numOfCol = 0;
+
+	printf("Введите кол-во строк в матрицае: ");
+	scanf("%d", &numOfStr);
+
+	printf("Введите кол-во столбцов в матрицае: ");
+	scanf("%d", &numOfCol);
+
+	if (numOfCol <= 0 || numOfStr <= 0) printf("Error! numOfCol <= 0 or numOfStr <= 0!");
+
+	int   matrix0[numOfStr][numOfCol];
+	int   matrix1[numOfStr][numOfCol];
+	int resMatrix[numOfStr][numOfCol];
+
+	inputMatrixValues(*matrix0 ,numOfStr, numOfCol);
+	inputMatrixValues(*matrix1 ,numOfStr, numOfCol);
+
+	for (int i = 0; i < numOfStr; i++)
+	{
+		for (int j = 0; j < numOfCol; j++)
+		{
+			resMatrix[i][j] = matrix0[i][j] + matrix1[i][j];
+		}
+	}
+
+	printMatrix(*resMatrix, numOfStr, numOfCol);
+}
+
+////task5
+
+void printStr(char* str, int length)
+{
+	for (int i = 0; i < length; i++) printf("%c", str[i]);
+	printf("\n");
+}
+
+int findEndStr(char* str, int length)
+{
+	for (int i = 0; i < length; i++)
+	{
+		if (str[i] == '\0') return i-1;
+	}
+	return length-1;
+}
+
+void deleteAllSpacesInStr(char* str, int length, char* emptyStrRes)
+{
+	int cnt = 0;
+	for(int i = 0; i < length; i++)
+	{
+		if (str[i] == ' ') continue;
+		else if (str[i] == '\0') return;
+		emptyStrRes[cnt++] = str[i];
+	}
+}
+
+void task5(char* startStr, int length)
+{
+	char str[length];
+	int indexOfEndStr;
+
+	deleteAllSpacesInStr(startStr, length, str);
+	indexOfEndStr = findEndStr(str, length);
+
+	for (int i = 0; i <= indexOfEndStr/2; i++)
+	{
+		printf("%c %c \n", str[i], str[indexOfEndStr-i]);
+		if (str[i] != str[indexOfEndStr-i]) 
+		{
+			printf("Слово - не палиндром. !p \n");
+			return;
+		}
+	}
+	printf("Слово - палиндром. p \n");
+}
 
 
 
